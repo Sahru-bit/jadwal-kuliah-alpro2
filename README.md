@@ -15,5 +15,5 @@ Go (Golang)
 ## Author
 Muhamad Sahruwardi
 103012500194
-Dennis Hernian Majid
+AND Dennis Hernian Majid
 103012500115
