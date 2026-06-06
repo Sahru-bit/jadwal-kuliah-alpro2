@@ -62,59 +62,21 @@ func main() {
 
 	n = 10
 
-	data[0].hari = "SENIN"
-	data[0].mulai = "08:30"
-	data[0].selesai = "10:30"
-	data[0].matkul = "ALGORITMA DAN PEMROGRAMAN 2"
-
-	data[1].hari = "SENIN"
-	data[1].mulai = "11:30"
-	data[1].selesai = "13:30"
-	data[1].matkul = "ETIKA DALAM AI"
-
-	data[2].hari = "SELASA"
-	data[2].mulai = "07:30"
-	data[2].selesai = "10:30"
-	data[2].matkul = "PEMODELAN BASIS DATA"
-
-	data[3].hari = "RABU"
-	data[3].mulai = "08:30"
-	data[3].selesai = "10:30"
-	data[3].matkul = "BAHASA INGGRIS"
-
-	data[4].hari = "RABU"
-	data[4].mulai = "11:30"
-	data[4].selesai = "14:30"
-	data[4].matkul = "ORGANISASI DAN ARSITEKTUR KOMPUTER"
-
-	data[5].hari = "KAMIS"
-	data[5].mulai = "10:30"
-	data[5].selesai = "12:30"
-	data[5].matkul = "ALGORITMA DAN PEMROGRAMAN 2"
-
-	data[6].hari = "JUMAT"
-	data[6].mulai = "08:30"
-	data[6].selesai = "10:30"
-	data[6].matkul = "KALKULUS LANJUT"
-
-	data[7].hari = "JUMAT"
-	data[7].mulai = "13:30"
-	data[7].selesai = "16:30"
-	data[7].matkul = "MATRIKS DAN RUANG VEKTOR"
-
-	data[8].hari = "SABTU"
-	data[8].mulai = "10:30"
-	data[8].selesai = "12:30"
-	data[8].matkul = "KALKULUS LANJUT"
-
-	data[9].hari = "SABTU"
-	data[9].mulai = "13:30"
-	data[9].selesai = "16:30"
-	data[9].matkul = "ALGORITMA DAN PEMROGRAMAN 2 (Praktikum)"
+	data[0] = jadwal{"SENIN", "08:30", "10:30", "ALGORITMA DAN PEMROGRAMAN 2"}
+	data[1] = jadwal{"SENIN", "11:30", "13:30", "ETIKA DALAM AI"}
+	data[2] = jadwal{"SELASA", "07:30", "10:30", "PEMODELAN BASIS DATA"}
+	data[3] = jadwal{"RABU", "08:30", "10:30", "BAHASA INGGRIS"}
+	data[4] = jadwal{"RABU", "11:30", "14:30", "ORGANISASI DAN ARSITEKTUR KOMPUTER"}
+	data[5] = jadwal{"KAMIS", "10:30", "12:30", "ALGORITMA DAN PEMROGRAMAN 2"}
+	data[6] = jadwal{"JUMAT", "08:30", "10:30", "KALKULUS LANJUT"}
+	data[7] = jadwal{"JUMAT", "13:30", "16:30", "MATRIKS DAN RUANG VEKTOR"}
+	data[8] = jadwal{"SABTU", "10:30", "12:30", "KALKULUS LANJUT"}
+	data[9] = jadwal{"SABTU", "13:30", "16:30", "ALGORITMA DAN PEMROGRAMAN 2 (Praktikum)"}
 
 	fmt.Println("===== MENU =====")
 	fmt.Println("1. Cek kuliah yang sedang berlangsung")
 	fmt.Println("2. Tampilkan semua jadwal pada hari tertentu")
+	fmt.Println("3. Tampilkan semua jadwal kuliah")
 	fmt.Print("Pilihan : ")
 	fmt.Scan(&pilihan)
 
@@ -122,7 +84,6 @@ func main() {
 
 		fmt.Print("Masukkan hari : ")
 		fmt.Scan(&hari)
-
 		hari = strings.ToUpper(hari)
 
 		fmt.Print("Masukkan jam (HH:MM) : ")
@@ -141,10 +102,24 @@ func main() {
 
 		fmt.Print("Masukkan hari : ")
 		fmt.Scan(&hari)
-
 		hari = strings.ToUpper(hari)
 
 		tampilJadwalHari(data, n, hari)
+
+	} else if pilihan == 3 {
+
+		var daftarHari [6]string
+		daftarHari[0] = "SENIN"
+		daftarHari[1] = "SELASA"
+		daftarHari[2] = "RABU"
+		daftarHari[3] = "KAMIS"
+		daftarHari[4] = "JUMAT"
+		daftarHari[5] = "SABTU"
+
+		var i int
+		for i = 0; i < 6; i++ {
+			tampilJadwalHari(data, n, daftarHari[i])
+		}
 
 	} else {
 		fmt.Println("Pilihan tidak valid")
