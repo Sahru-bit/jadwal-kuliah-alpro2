@@ -108,12 +108,18 @@ func main() {
 
 	} else if pilihan == 3 {
 
-		tampilJadwalHari(data, n, "SENIN")
-		tampilJadwalHari(data, n, "SELASA")
-		tampilJadwalHari(data, n, "RABU")
-		tampilJadwalHari(data, n, "KAMIS")
-		tampilJadwalHari(data, n, "JUMAT")
-		tampilJadwalHari(data, n, "SABTU")
+		var daftarHari [6]string
+		daftarHari[0] = "SENIN"
+		daftarHari[1] = "SELASA"
+		daftarHari[2] = "RABU"
+		daftarHari[3] = "KAMIS"
+		daftarHari[4] = "JUMAT"
+		daftarHari[5] = "SABTU"
+
+		var i int
+		for i = 0; i < 6; i++ {
+			tampilJadwalHari(data, n, daftarHari[i])
+		}
 
 	} else {
 		fmt.Println("Pilihan tidak valid")
